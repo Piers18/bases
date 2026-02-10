@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
 
 
 @Component({
@@ -9,20 +9,22 @@ import { Component } from "@angular/core";
         margin: 5px 10px;
         width: 75px;
     }
-    `
+    `,
 })
 export class CounterPageComponent {
     counter: number = 10;
+    couterSignal = signal(10);
+
+    constructor() {
+    }
 
     increaseby(value: number) {
         this.counter += value;
-    }
-
-    decreaseby(value: number) {
-        this.counter -= value;
+        this.couterSignal.update(current => current + value);
     }
 
     resetCounter() {
-        this.counter = 10;
+        this.counter = 0;
+        this.couterSignal.set(0);
     }
 }
