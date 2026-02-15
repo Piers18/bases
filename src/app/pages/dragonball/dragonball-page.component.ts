@@ -9,7 +9,7 @@ interface Character {
 
 @Component({
   selector: 'app-dragonball-page',
-  imports: [NgClass],
+  imports: [],
   templateUrl: './dragonball-page.component.html',
   styleUrl: './dragonball-page.component.css'
 })
@@ -30,6 +30,16 @@ export class DragonballPageComponent {
       id: 3,
       name: 'Piccolo',
       power: 8000
+    },
+    {
+      id: 4,
+      name: 'Yamcha',
+      power: 300
+    },
+    {
+      id: 5,
+      name: 'Krillin',
+      power: 500
     }
   ])
 
