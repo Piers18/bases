@@ -14,6 +14,8 @@ interface Character {
   styleUrl: './dragonball-page.component.css'
 })
 export class DragonballPageComponent {
+  name = signal('Gohan');
+  power = signal(0);
 
   characters = signal<Character[]>([
     {
@@ -43,9 +45,15 @@ export class DragonballPageComponent {
     }
   ])
 
-  powerClasses = computed(() => {
-    return{
-      'text-danger': true
+  addCharacter() {
+    const newCharacter: Character = {
+      id: this.characters().length + 1,
+      name: this.name(),
+      power: this.power()
     }
-  })
+
+    console.log("Name: "+ newCharacter.name);
+    console.log("Power: "+ newCharacter.power);
+  }
+
 }
